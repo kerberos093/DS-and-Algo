@@ -1,0 +1,20 @@
+ListNode* Solution::deleteDuplicates(ListNode* A) {
+    struct ListNode *ptr=A,*str=A->next;
+   if(ptr->next==NULL)
+     return A;
+     else{
+    while(str!=NULL)
+    {
+       if(str->val!=ptr->val)
+         {
+             ptr->next=str;
+             ptr=str;
+             str=str->next;
+         }
+         else
+         str=str->next;
+    }
+    ptr->next=NULL;
+    return A;
+     }
+}
