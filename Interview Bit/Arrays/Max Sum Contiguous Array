@@ -1,0 +1,11 @@
+int Solution::maxSubArray(const vector<int> &A) {
+    int s=A.size();
+    int maxend=A[0];
+    int maxsofar=A[0];
+    for(int i=1;i<s;i++)
+    {   maxend=max(maxend+A[i],A[i]);
+         if(maxsofar<maxend)
+          maxsofar=maxend;
+    }
+    return maxsofar;
+}
