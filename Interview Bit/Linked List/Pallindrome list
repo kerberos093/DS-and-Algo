@@ -1,0 +1,21 @@
+int Solution::lPalin(ListNode* A) {
+    int n=0;
+    struct ListNode *ptr=A;
+    vector<string> b;
+    while(ptr!=NULL)
+    {
+        n++;
+        b.push_back(to_string(ptr->val));
+        ptr=ptr->next;
+    }
+    int flag=0;
+    for(int i=0;i<n/2;i++)
+    {
+        if(b[i]!=b[n-i-1])
+          flag++;
+    }
+    if(flag>0)
+      return 0;
+      else return 1;
+    
+}
