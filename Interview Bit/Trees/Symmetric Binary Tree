@@ -1,0 +1,32 @@
+/**
+ * Definition for binary tree
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+int areMirror(TreeNode* a, TreeNode* b) 
+{ 
+    /* Base case : Both empty */
+    if (a==NULL && b==NULL) 
+        return true; 
+  
+    // If only one is empty 
+    if (a==NULL || b == NULL) 
+        return false; 
+  
+    /* Both non-empty, compare them recursively 
+     Note that in recursive calls, we pass left 
+     of one tree and right of other tree */
+    return  a->val == b->val && 
+            areMirror(a->left, b->right) && 
+            areMirror(a->right, b->left); 
+} 
+int Solution::isSymmetric(TreeNode* A) {
+ int a=areMirror(A->left,A->right);
+ if(a==0)
+   return 0;
+  else return 1;
+}
