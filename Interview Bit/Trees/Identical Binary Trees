@@ -1,0 +1,33 @@
+/**
+ * Definition for binary tree
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+void inorder(TreeNode* A,vector<int> &b)
+{
+    if(A==NULL)
+      return;
+     inorder(A->left,b);
+     b.push_back(A->val);
+     inorder(A->right,b);
+}
+int Solution::isSameTree(TreeNode* A, TreeNode* B) {
+    vector<int> b,c;
+    inorder(A,b);
+    inorder(B,c);
+    if(b.size()!=c.size())
+      return 0;
+     int flag=0;
+     for(int i=0;i<b.size();i++)
+     {
+         if(b[i]!=c[i])
+          flag++;
+     }
+     if(flag==0)
+       return 1;
+      else return 0;
+}
