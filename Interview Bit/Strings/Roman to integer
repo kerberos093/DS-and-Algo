@@ -1,0 +1,34 @@
+int ch(char a)
+{
+    if(a=='I')
+      return 1;
+    if(a=='V')
+      return 5;
+    if(a=='X')
+       return 10;
+    if(a=='L')
+        return 50;
+    if(a=='C')
+      return 100;
+     if(a=='D')
+       return 500;
+      if(a=='M')
+        return 1000;
+}
+int roman(string A)
+{   int num=ch(A[A.size()-1]);
+    for(int i=A.size()-2;i>=0;i--)
+    {
+        if(ch(A[i+1])>ch(A[i]))
+           num=num-ch(A[i]);
+         else
+         {
+             num=num+ch(A[i]);
+         }
+    }
+    return num;
+}
+int Solution::romanToInt(string A) {
+    int res=roman(A);
+    return res;
+}
