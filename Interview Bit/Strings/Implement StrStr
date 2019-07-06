@@ -1,0 +1,29 @@
+int Solution::strStr(const string A, const string B) {
+    int n=A.size();
+    int m=B.size();
+    int flag=0;
+    if(n==0||(n==0&&m==0)||(m>n))
+      return -1;
+     for(int i=0;i<A.size();i++)
+     {
+        if(A[i]==B[0])
+        {  int count=1;
+           int j=i+1;
+           int k=1;
+            while((B[k]==A[j])&&A[j]&&B[k])
+            {
+                count++;
+                k++;
+                j++;
+            }
+            if(count==m)
+            {
+                flag++;
+                return i;
+            }
+        }
+     }
+     if(flag==0)
+     return -1;
+     
+}
