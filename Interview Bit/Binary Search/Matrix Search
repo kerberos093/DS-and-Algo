@@ -1,0 +1,17 @@
+int Solution::searchMatrix(vector<vector<int> > &matrix, int target) {
+    // Do not write main() function.
+    // Do not read input, instead use the arguments to the function.
+    // Do not print the output, instead return values as specified
+    // Still have a doubt. Checkout www.interviewbit.com/pages/sample_codes/ for more details
+ int n = matrix.size();
+            int m = matrix[0].size();
+            int l = 0, r = m * n - 1;
+            while (l != r){
+                int mid = (l + r - 1) >> 1;
+                if (matrix[mid / m][mid % m] < target)
+                    l = mid + 1;
+                else 
+                    r = mid;
+            }
+            return matrix[r / m][r % m] == target;
+}
