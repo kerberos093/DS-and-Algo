@@ -1,0 +1,41 @@
+void ipadd(string A,vector<string>&ans,int dot,int dot_pos)
+{
+    int n=A.length(),i=dot_pos,part=0;
+   string temp=A;
+  // cout<<dot<<" dot "<<dot_pos<<endl;
+    if(dot<3)
+    {
+        while(i<n)
+        {
+            part=part*10+(A[i]-'0');
+            i++;
+            if((part<=255)&&A[i-1]!='.')
+            {
+                //cout<<A<<" "<<i<<" "<<dot_pos<<endl;
+                ipadd(temp.insert(i,1,'.'),ans,dot+1,i+1);
+                //cout<<A<<" "<<i<<" "<<dot_pos<<endl;
+                temp=A;
+                if(A[i-1]=='0'&&i-1==dot_pos)break;
+            }
+            else break;
+        }
+    }
+    else if(i<n)
+    {
+        if(A[i]=='0')i++;
+        else
+        while(i<n)
+        {
+            part=part*10+(A[i]-'0');
+            i++;
+        }
+        if(i==n&&part<=255)ans.push_back(A);
+    }
+    
+}
+vector<string> Solution::restoreIpAddresses(string A) {
+     vector<string> ans;
+    ipadd(A,ans,0,0);
+    sort(ans.begin(),ans.end());
+    return ans;
+}
