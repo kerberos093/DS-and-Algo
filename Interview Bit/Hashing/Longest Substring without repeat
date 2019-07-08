@@ -1,0 +1,31 @@
+int max(int a,int b)
+{
+    return a>b?a:b;
+}
+int Solution::lengthOfLongestSubstring(string A) {
+    // Still have a doubt. Checkout www.interviewbit.com/pages/sample_codes/ for more details
+    bool exist[256] = {false};
+    int i=0,j=0;
+    int maxlen=0;
+    while(j<A.size())
+    {
+        if(exist[A[j]])
+        {
+            maxlen = max(maxlen,j-i);
+            while(A[i]!=A[j])
+            {
+                exist[A[i]]=false;
+                i++;
+            }
+            i++;
+            j++;
+        }
+        else
+        {
+            exist[A[j]] = true;
+            j++;
+        }
+    }
+    maxlen = max(maxlen,A.size()-i);
+    return maxlen;
+}
