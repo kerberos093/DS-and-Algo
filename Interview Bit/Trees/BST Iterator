@@ -1,0 +1,51 @@
+/**
+ * Definition for binary tree
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+int cur;
+ vector<int>b;
+void inorder(TreeNode* root,vector<int>&b)
+{
+    if(root==NULL)
+     return;
+    inorder(root->left,b);
+    b.push_back(root->val);
+    inorder(root->right,b);
+}
+   
+BSTIterator::BSTIterator(TreeNode *root) {
+     b.clear();
+     cur=0;
+    inorder(root,b);
+    
+
+}
+
+/** @return whether we have a next smallest number */
+bool BSTIterator::hasNext() {
+    if(cur<b.size())
+        return true;
+    else
+        return false;
+}
+
+/** @return the next smallest number */
+int BSTIterator::next() {
+   if(cur<b.size())
+    {
+        int tmp = b[cur];
+        cur++;
+        return tmp;
+    }
+}
+
+/**
+ * Your BSTIterator will be called like this:
+ * BSTIterator i = BSTIterator(root);
+ * while (i.hasNext()) cout << i.next();
+ */
