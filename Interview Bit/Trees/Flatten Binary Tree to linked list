@@ -1,0 +1,40 @@
+/**
+ * Definition for binary tree
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+ void inorder(TreeNode *root,vector<int>&b) 
+{ 
+    // Base Case 
+    if (root == NULL)  return; 
+    b.push_back(root->val);
+   inorder(root->left,b);
+  
+   inorder(root->right,b);
+   
+} 
+TreeNode* Solution::flatten(TreeNode* A) {
+    // Do not write main() function.
+    // Do not read input, instead use the arguments to the function.
+    // Do not print the output, instead return values as specified
+    // Still have a doubt. Checkout www.interviewbit.com/pages/sample_codes/ for more details
+   vector<int> b;
+   inorder(A,b);
+   TreeNode *node=new TreeNode(b[0]);
+   TreeNode *root=node;
+   for(int i=1;i<b.size();i++)
+   {
+    while(node->right!=NULL)
+    {
+        node=node->right;
+    }
+    node->right=new TreeNode(b[i]);
+   }
+   return root;
+    
+}
+----------------------------------------------------------------------
