@@ -1,0 +1,23 @@
+void intersection(const vector<int>&arrA,const vector<int>&arrB,vector<int>&b)
+{  int x=0,y=0;
+     while (x < arrA.size() && y < arrB.size()) {
+            if (arrA[x] > arrB[y])
+                y++;
+            else if (arrA[x] < arrB[y])
+                x++;
+            else {
+                 b.push_back(arrA[x]);
+                 x++;
+                 y++;
+            
+            }
+}
+
+}
+vector<int> Solution::intersect(const vector<int> &arrA, const vector<int> &arrB) {
+    int x=0,y=0;
+    vector<int>b;
+    intersection(arrA,arrB,b);
+    
+    return b;
+}
