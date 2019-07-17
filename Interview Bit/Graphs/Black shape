@@ -1,0 +1,39 @@
+int row[]={1,-1,0,0};
+int col[]={0,0,-1,1};
+bool isSafe(int x,int y,int n,int m){
+    if(x>=0 && x<n && y>=0 && y<m){
+        return true;
+    }
+    return false;
+}
+void DFSutil(vector<string> &A,int i,int j,int n,int m){
+    A[i][j]='O';
+     for(int k=0;k<4;k++){
+         int x=i+row[k];
+         int y=j+col[k];
+         if(isSafe(x,y,n,m) && A[x][y]=='X'){
+             DFSutil(A,x,y,n,m);
+         }
+     }
+}
+
+int Solution::black(vector<string> &A) {
+    // Do not write main() function.
+    //Do not read input, instead use the arguments to the function.
+    // Do not print the output, instead return values as specified
+    // Still have a doubt. Checkout www.interviewbit.com/pages/sample_codes/ for more details
+     int cnt=0;
+     int n=A.size();
+     int m=A[0].size();
+      for(int i=0;i<A.size();i++){
+         
+          for(int j=0;j<A[0].size();j++){
+              if(A[i][j]=='X'){
+                  cnt++;
+                  
+               DFSutil(A,i,j,n,m);
+              }
+          }
+      }
+      return cnt;
+}
