@@ -1,0 +1,19 @@
+*Hash functions-
+1)Direct Hashing-
+2)Modulo division hashing->h(k)=kmodn
+3)mid square hashing->key is squared and address is selected from middle of square number
+4)folding hashing->a)fold-shift hashing->key value is divided into parts whose size matches the size of the required address
+                   b)fold boundary hashing->left and right numbers are folded on a fixed boundary between them and the centre number
+5)Pseudo random hashing->Y=ak+c, h(k)=Y%n
+6)subtraction hashing->h(k)=k-c(used for small lists, like direct hashing)
+
+*collision->when two keys give same address from hash functions
+
+*Hashing techniques to resolve collision-
+1)open hashing(closed addressing)-->1)chaining
+2)closed hashing(open addressing)-->1)linear probing 2)qudratic probing 3)double hashing
+
+*chaining->chaining by linked lists
+*linear probing->inserting ki(key) at first free location at (u+i)%m,where i=0 to m-1
+*quadratic probing->inserting ki at first free location from (u+i*i)%m,where i=0 to m-1
+*double hashing->inserting ki at first free place from (u+v*i)%m,where i=0 to m-1
