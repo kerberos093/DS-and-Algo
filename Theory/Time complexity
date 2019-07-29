@@ -1,0 +1,9 @@
+MASTER THEOREM
+Let a ≥ 1 and b > 1 be constants, let f(n) be a function, and let T(n) be a function over the positive numbers defined by the recurrence
+
+T(n) = aT(n/b) + f(n).
+If f(n) = Θ(nd), where d ≥ 0, then
+
+T(n) = Θ(nd) if a < bd,
+T(n) = Θ(ndlog n) if a = bd,
+T(n) = Θ(nlogba) if a > bd.
