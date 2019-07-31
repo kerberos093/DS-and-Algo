@@ -1,0 +1,15 @@
+1)what is oop?->programming paradigm where complete software operates as a unch of objects talking to each other
+2)why oop?->overall understanding of the software is increased,eases maintenance by the use of encapsulation
+3)main features->encapsulation,polymorphism,inheritance
+4)encapsulatuion->data hiding,bundling of data and methods together
+   polymorphism->some code or operations or objects behave differently in different contexts in c++,compile time 
+                 polymorphism,run time polymorphism
+   inheritance->a class is based on another class and uses data and implementation of the other class, purpose is
+                 code reuse
+5)abstraction->sepaeration of necessary from unnecessary details to create our own abstract view or model, hides implementaton 
+               details while just presenting the features to the outside world
+                eg->database system->how data is stored,created and maintained
+                
+6)constructors-> a special member function of class which initializes objects of the class, have same name and no return time, automati.
+                 called if not written
+   destructor->member function which deletes the object,called at the end of program or when delete operator is called
