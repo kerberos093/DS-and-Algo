@@ -1,0 +1,22 @@
+void NthPostordernode(struct Node* root, int N) 
+{ 
+    static int flag = 0; 
+  
+    if (root == NULL) 
+        return; 
+  
+    if (flag <= N) { 
+  
+        // left recursion 
+        NthPostordernode(root->left, N); 
+  
+        // right recursion 
+        NthPostordernode(root->right, N); 
+  
+        flag++; 
+  
+        // prints the n-th node of preorder traversal 
+        if (flag == N) 
+            cout << root->data; 
+    } 
+} 
