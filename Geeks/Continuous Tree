@@ -1,0 +1,24 @@
+bool treeContinuous(struct Node *ptr) 
+{ 
+  
+    if (ptr == NULL) 
+        return true; 
+  
+    if (ptr->left == NULL && ptr->right == NULL) 
+        return true; 
+  
+   
+    if (ptr->left == NULL) 
+       return (abs(ptr->data - ptr->right->data) == 1) && 
+              treeContinuous(ptr->right); 
+  
+   
+    if (ptr->right == NULL) 
+       return (abs(ptr->data - ptr->left->data) == 1) && 
+              treeContinuous(ptr->left); 
+  
+    return  abs(ptr->data - ptr->left->data)==1 && 
+            abs(ptr->data - ptr->right->data)==1 && 
+            treeContinuous(ptr->left) && 
+            treeContinuous(ptr->right); 
+} 
