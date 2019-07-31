@@ -1,0 +1,31 @@
+typedef pair<int, int> pi; 
+  
+// User defined stack class 
+class Stack{ 
+      
+    // cnt is used to keep track of the number of 
+    //elements in the stack and also serves as key 
+    //for the priority queue. 
+    int cnt; 
+    priority_queue<pair<int, int> > pq; 
+public: 
+    Stack():cnt(0){} 
+    void push(int n); 
+    void pop(); 
+    int top(); 
+    bool isEmpty(); 
+}; 
+  
+// push function increases cnt by 1 and 
+// inserts this cnt with the original value.  
+void Stack::push(int n){ 
+    cnt++; 
+    pq.push(pi(cnt, n)); 
+} 
+  
+// pops element and reduces count. 
+void Stack::pop(){ 
+    if(pq.empty()){ cout<<"Nothing to pop!!!";} 
+    cnt--; 
+    pq.pop(); 
+} 
